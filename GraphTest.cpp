@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <set>
-#include "Graph.h"
+//#include "Graph.h"
 #include <vector>
 
 using namespace std;
@@ -52,13 +52,14 @@ int main() {
             getline(inCSV, region);
             numData++;
 
-            if(region == "")
+            //if(region == "")
 
                 //crete vertex here, pass it to the "insert edge" function
 
                 //or pass it to the "verify distance" : it would prob return bool, then pass to insert function
 
                 //regardless need to insert the vertex in the graph, add it on the x and y axis
+
 
                 regions.emplace(region);
             numData++;
