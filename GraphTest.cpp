@@ -8,6 +8,8 @@
 
 using namespace std;
 
+
+
 void ReadCityLookUP(unordered_map<string, int> &_cityLook){
 
     //used for distance lookup table
@@ -68,7 +70,8 @@ int main() {
 
     string date, price, volume, type , region;
 
-    Vertex tempVertex;
+    Vertex tempVertex;      //used for index  0 of adjList, represents source data
+    Vertex dummyVertex;    // used for other indices of adjList, only using Vertex for consistency with index 0
 
 
 
@@ -85,6 +88,8 @@ int main() {
     set<string> pricesSpecific;
     string specificTime = "2015-03-08";
 
+    unordered_map<string, int> dateFreq;
+
     int dateCount = 0;
 
     ////analysis variables end
@@ -93,9 +98,8 @@ int main() {
 
     inCSV.open(csvFileName);
 
-    //Begin reading in data
 
-    unordered_map<string, int> dateFreq;
+    //Begin reading in data
 
     if(inCSV.is_open()){
 
@@ -151,13 +155,11 @@ int main() {
             tempVertex.name = region;
             tempVertex.price =stof(price);
 
-            cityIndex = cityLookUp[region];  //now we know which index to lookup
 
-            int column; //will not traverse the columns contagiously
+            //now we know which index(row) to match Dist-lookup column
+            cityIndex = cityLookUp[region];
 
-
-
-
+            int column; //will not traverse the columns contagiously: use iterator
 
             // never added this date "layer" before
             if(graphCollection[date].dateCount == 0 ) {
@@ -166,6 +168,13 @@ int main() {
 
                 //date count has been updated, now potentially insert vertex's edges
 
+                if(graphCollection[date].adjList[region].empty()){  //if adjList @ index "region" is empty, add itself to index 0
+                    graphCollection[date].InsertEdge(region, tempVertex,0);
+                }
+
+                ////remember: cityLookUp is helper lookup for dist table look up
+
+                //secondary use of cityLookUp, now using to iterate through columns (same ordering as rows)
                 for(auto iter = cityLookUp.begin(); iter != cityLookUp.end(); iter++){
 
                     column = iter->second;
@@ -173,10 +182,12 @@ int main() {
                     if(distLookUp[cityIndex][column] < 600){
                         //capture cities within 600 miles
 
-                        tempEdgeDistance = distLookUp[cityIndex][column];
-                        tempCityName = iter->first;
+                        //need to create dummy Vertex (only use name attribute)
+                        dummyVertex.name = iter->first;
 
-                        graphCollection[date].InsertEdge(tempVertex,tempCityName,tempEdgeDistance);
+                        tempEdgeDistance = distLookUp[cityIndex][column];
+
+                        graphCollection[date].InsertEdge(region,dummyVertex,tempEdgeDistance);
 
                     }
 
@@ -188,10 +199,23 @@ int main() {
                 // date previously added, now need to create unique date for hash table
             else if(graphCollection[date].dateCount <= 6){
 
+                ////TODO <= 6 is probably incomplete logic:
+                /*
+                 *  Must guarantee no more than 7 (0-6) dates for a single CITY/REGION
+                 *  problem: this code will only add 7 nodes to a graph
+                 *  need extra logic for 54 unique cities * 7 layers or something similar
+                 */
+
                 int validDay = graphCollection[date].dateCount;
                 date.append(to_string(validDay));                  //unique date
 
                 graphCollection[date].dateCount++;
+
+                if(graphCollection[date].adjList[region].empty()){  //if adjList @ index "region" is empty, add itself to index 0
+                    graphCollection[date].InsertEdge(region, tempVertex,0);
+                }
+
+                //secondary use of cityLookUp, now using to iterate through columns (same ordering as rows)
 
                 //unique key and original date count has been updated, now potentially insert vertices
                 for(auto iter = cityLookUp.begin(); iter != cityLookUp.end(); iter++){
@@ -201,10 +225,12 @@ int main() {
                     if(distLookUp[cityIndex][column] < 600){
                         //capture cities within 600 miles
 
-                        tempEdgeDistance = distLookUp[cityIndex][column];
-                        tempCityName = iter->first;
+                        //need to create dummy Vertex (only use name attribute)
+                        dummyVertex.name = iter->first;
 
-                        graphCollection[date].InsertEdge(tempVertex,tempCityName,tempEdgeDistance);
+                        tempEdgeDistance = distLookUp[cityIndex][column];
+
+                        graphCollection[date].InsertEdge(region,dummyVertex,tempEdgeDistance);
 
                     }
 
@@ -223,6 +249,8 @@ int main() {
 
     ////At this point, graphs and graph collection should be properly filled.
 
+    //// Now until end is all analysis code
+
     // cout << "numDates Orlando: " << datesForCity.size() << endl;
 
     //cout << "num of dates for Orlando: " << dateCount << endl;
@@ -231,8 +259,6 @@ int main() {
 
     //cout << "num cities/regions: " << regions.size() << endl;
 
-
-    //// Now until end is all analysis code
 
     /* cout << endl;
 
@@ -314,6 +340,5 @@ int main() {
 
     return 0;
 }
-
 
 
