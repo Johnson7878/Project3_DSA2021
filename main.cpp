@@ -87,9 +87,9 @@ if(CSVcoord.is_open()){
 }
 
 
-    int distanceTable[55][55];
-    for(int i = 0; i < 55; i++){
-        for(int j = 0; j < 55; j++){
+    int distanceTable[54][54];
+    for(int i = 0; i < 54; i++){
+        for(int j = 0; j < 54; j++){
             double lat1 = coordinates[i][0];
             double long1 = coordinates[i][1];
             double lat2 = coordinates[j][0];
