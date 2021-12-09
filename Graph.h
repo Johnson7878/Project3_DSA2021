@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <queue>
 #include <stack>
+#include <set>
 
 using namespace std;
 
@@ -27,31 +28,12 @@ struct Vertex{
 
 };
 
-//  https://www.techiedelight.com/use-std-pair-key-std-unordered_map-cpp/
-
-/*typedef pair<Vertex, string> Vpair;
-
-////c++ cannot hash std::pair or user classes natively
-struct hashSecond{
-
-    template <class T1, class T2>
-    std::size_t operator()(const std::pair<T1, T2> &pair) const {
-
-        return std::hash<T2>()(pair.second);
-    }
-};*/
 
 class Graph{
 
 
-    //// organic attribute of a graph could be used to easily double the number of vertices in the graph
-    // bool isOrganic;
-
-    //used if graph is adj Matrix, won't need it for adjList
-    // int gridSize = 200000; //200k
-
-    //// Distance Matrix should have access in main (maybe make it static?)
-    //vector< vector<int> > distLookUp(54, vector<int>(54));    //54 x 54
+    //// Hidden attribute: Graphs are further distinguished by either all organic/non organic vertices
+    ///  Attribute actually stored as a character at the end of key to a hashMap: either 'C' or 'O'
 
 
 public:
@@ -64,13 +46,16 @@ public:
      */
     unordered_map< string, vector< pair<Vertex, int>>> adjList;
 
+
     int dateCount;
+
     /*
     * from a valid date, Exp: 11/04/15  , 1st time we read this date, date count = 0,
     * second time we read the date, date count = 1, meaning : 11/ 05 / 15,
     * this way we can get dates that are not actually part of the data set,
     * also a dateCount is much simpler than creating and verifying that a valid date exists
     */
+
 
     // Graph( int _dateCount );
 
