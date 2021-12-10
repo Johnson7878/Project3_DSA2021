@@ -1,3 +1,0 @@
-/Users/nicholaiplatonoff/CLionProjects/Project3_DSA2021/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/nicholaiplatonoff/CLionProjects/Project3_DSA2021/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/nicholaiplatonoff/CLionProjects/Project3_DSA2021/cmake-build-debug/CMakeFiles/Project3_DSA2021.dir
