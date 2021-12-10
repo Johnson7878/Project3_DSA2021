@@ -1,0 +1,3 @@
+C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/CMakeFiles/AvocadoThing.dir
+C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/CMakeFiles/rebuild_cache.dir
