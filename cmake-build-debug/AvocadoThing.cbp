@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="AvocadoThing"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\OneDrive\;CMake Files\..\..\OneDrive\Desktop\;CMake Files\..\..\OneDrive\Desktop\SFML_Setup\;CMake Files\..\..\OneDrive\Desktop\SFML_Setup\SFML-2.5.1\;CMake Files\..\..\OneDrive\Desktop\SFML_Setup\SFML-2.5.1\lib\;CMake Files\..\..\OneDrive\Desktop\SFML_Setup\SFML-2.5.1\lib\cmake\;CMake Files\..\..\OneDrive\Desktop\SFML_Setup\SFML-2.5.1\lib\cmake\SFML\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="AvocadoThing">
+				<Option output="C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/AvocadoThing.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSFML_STATIC"/>
+					<Add directory="C:/Users/nepat/OneDrive/Desktop/SFML_Setup/SFML-2.5.1/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 AvocadoThing"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="AvocadoThing/fast">
+				<Option output="C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/AvocadoThing.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DSFML_STATIC"/>
+					<Add directory="C:/Users/nepat/OneDrive/Desktop/SFML_Setup/SFML-2.5.1/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 AvocadoThing/fast"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~2/MINGW-~1/I686-8~1.0-P/mingw32/bin/mingw32-make.exe -f &quot;C:/Users/nepat/CLionProjects/AvocadoThing/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/Graph.h">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/avocado.cpp">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/avocado.h">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/button.cpp">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/button.h">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/edge.cpp">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/edge.h">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/main.cpp">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/spriteButton.cpp">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/spriteButton.h">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/textBox.cpp">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/textBox.h">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/textureManager.cpp">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/textureManager.h">
+			<Option target="AvocadoThing"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/../../OneDrive/Desktop/SFML_Setup/SFML-2.5.1/lib/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\OneDrive\Desktop\SFML_Setup\SFML-2.5.1\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/../../OneDrive/Desktop/SFML_Setup/SFML-2.5.1/lib/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\OneDrive\Desktop\SFML_Setup\SFML-2.5.1\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/../../OneDrive/Desktop/SFML_Setup/SFML-2.5.1/lib/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\OneDrive\Desktop\SFML_Setup\SFML-2.5.1\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/../../OneDrive/Desktop/SFML_Setup/SFML-2.5.1/lib/cmake/SFML/SFMLStaticTargets-debug.cmake">
+			<Option virtualFolder="CMake Files\..\..\OneDrive\Desktop\SFML_Setup\SFML-2.5.1\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/../../OneDrive/Desktop/SFML_Setup/SFML-2.5.1/lib/cmake/SFML/SFMLStaticTargets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\OneDrive\Desktop\SFML_Setup\SFML-2.5.1\lib\cmake\SFML\"/>
+		</Unit>
+		<Unit filename="C:/Users/nepat/CLionProjects/AvocadoThing/../../OneDrive/Desktop/SFML_Setup/SFML-2.5.1/lib/cmake/SFML/SFMLStaticTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\OneDrive\Desktop\SFML_Setup\SFML-2.5.1\lib\cmake\SFML\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
