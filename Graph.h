@@ -61,11 +61,11 @@ public:
 
     void InsertEdge(string &from, Vertex &to, int distance);
 
-    vector<string> bfsPrice( const string& source, float min, float max );
+    string bfsPrice( const string& source, float min, float max );
 
     vector<string> bfsVolume( const string& source, float min, float max );
 
-    vector<string> DfsPrice( const string& source, float min, float max );
+    string DfsPrice( const string& source, float min, float max );
 
     vector<string> DfsVolume( const string& source, float min, float max );
 
@@ -91,9 +91,14 @@ void Graph::InsertEdge(string &from, Vertex &to, int distance) {
 
 }
 
-vector<string> Graph::bfsPrice(const string& source, float min, float max) {
+string Graph::bfsPrice(const string& source, float min, float max) {
 
     vector<string> priceRangeList;
+
+    float compare = 0;
+
+    float minPrice = 0;
+    string minPriceName;
 
     //set and queue will store names of cities/region visited
 
@@ -110,30 +115,51 @@ vector<string> Graph::bfsPrice(const string& source, float min, float max) {
         string current = BFSqueue.front();
         BFSqueue.pop();
 
-        //find should always result in valid iterator
+        //find should (always?) result in valid iterator (ok not always)
         //constant access of hash search
-        auto iter = adjList.find(source);
+        auto iter = adjList.find(current);
 
+        //don't do anything if current is not found in the adjList
+        if(iter != adjList.end()){
 
-        //second is the vector of pairs, get index[0] of pairs = source data, get first = Vertex
-        if(iter->second[0].first.price < max && iter->second[0].first.price > min )
-            priceRangeList.push_back(iter->first);
+            compare = iter->second[0].first.price;
 
-
-
-        vector<pair<Vertex, int>> neighbors = adjList[source];
-        for(int i = 1; i < neighbors.size(); i++){
-
-            if(visited.count(neighbors[i].first.name) == 0){
-                visited.insert(neighbors[i].first.name);
-                BFSqueue.push(neighbors[i].first.name);
+            if(current == source){
+                minPrice = compare;
+                minPriceName = current;
             }
+
+            else if(compare < minPrice){
+                minPrice = compare;
+                minPriceName = current;
+            }
+            else{
+                //do nothing, minPrice not updated
+            }
+
+            //second is the vector of pairs, get index[0] of pairs = source data, get first = Vertex
+            if( compare < max && compare > min )
+                priceRangeList.push_back(iter->first);
+
+
+
+            vector<pair<Vertex, int>> neighbors = adjList[current];
+            for(int i = 1; i < neighbors.size(); i++){
+
+                if(visited.count(neighbors[i].first.name) == 0){
+                    visited.insert(neighbors[i].first.name);
+                    BFSqueue.push(neighbors[i].first.name);
+                }
+
+            }
+
 
         }
 
+
     }
 
-    return priceRangeList;
+    return minPriceName;
 
 }
 
@@ -143,6 +169,8 @@ vector<string> Graph::bfsVolume(const string& source, float min, float max) {
 
     vector<string> volumeRangeList;
 
+    float compare = 0;
+
     //set and queue will store names of cities/region visited
 
     set<string> visited;
@@ -151,50 +179,62 @@ vector<string> Graph::bfsVolume(const string& source, float min, float max) {
     visited.insert(source);
     BFSqueue.push(source);
 
+    //Vpair dummy; //will be used to search and get "key" attribute data from the adjList
 
     while(!BFSqueue.empty()){
 
         string current = BFSqueue.front();
         BFSqueue.pop();
 
-        //find should always result in valid iterator
+        //find should (always?) result in valid iterator (ok not always)
         //constant access of hash search
-        auto iter = adjList.find(source);
+        auto iter = adjList.find(current);
+
+        //don't do anything if current is not found in the adjList
+        if(iter != adjList.end()){
+
+            compare = iter->second[0].first.price;
+
+            ////maybe chnge to get max, now is getting min volume
+            if( compare < max && compare > min )
+                volumeRangeList.push_back(iter->first);
 
 
-        //second is the vector of pairs, get index[0] of pairs = source data, get first = Vertex
-        if(iter->second[0].first.volume < max && iter->second[0].first.volume > min )
-            volumeRangeList.push_back(iter->first);
 
+            vector<pair<Vertex, int>> neighbors = adjList[current];
+            for(int i = 1; i < neighbors.size(); i++){
 
+                if(visited.count(neighbors[i].first.name) == 0){
+                    visited.insert(neighbors[i].first.name);
+                    BFSqueue.push(neighbors[i].first.name);
+                }
 
-        vector<pair<Vertex, int>> neighbors = adjList[source];
-        for(int i = 1; i < neighbors.size(); i++){
-
-            if(visited.count(neighbors[i].first.name) == 0){
-                visited.insert(neighbors[i].first.name);
-                BFSqueue.push(neighbors[i].first.name);
             }
+
 
         }
 
     }
-
-
 
     return volumeRangeList;
 
 }
 
-vector<string> Graph::DfsPrice(const string &source, float min, float max) {
+string Graph::DfsPrice(const string &source, float min, float max) {
 
-    //same as Bfs, but with stack instead
+    ////same as Bfs, but with stack instead
 
     vector<string> priceRangeList;
 
+    float compare = 0;
+
+    float minPrice = 0;
+    string minPriceName;
+
+    //set and queue will store names of cities/region visited
 
     set<string> visited;
-    stack<string> dfsStack;
+    queue<string> dfsStack;
 
     visited.insert(source);
     dfsStack.push(source);
@@ -203,76 +243,108 @@ vector<string> Graph::DfsPrice(const string &source, float min, float max) {
 
     while(!dfsStack.empty()){
 
-        string current = dfsStack.top();
+        string current = dfsStack.front();
         dfsStack.pop();
 
-        //find should always result in valid iterator
+        //find should (always?) result in valid iterator (ok not always)
         //constant access of hash search
-        auto iter = adjList.find(source);
+        auto iter = adjList.find(current);
 
+        //don't do anything if current is not found in the adjList
+        if(iter != adjList.end()){
 
-        //second is the vector of pairs, get index[0] of pairs = source data, get first = Vertex
-        if(iter->second[0].first.price < max && iter->second[0].first.price > min )
-            priceRangeList.push_back(iter->first);
+            compare = iter->second[0].first.price;
 
-
-
-        vector<pair<Vertex, int>> neighbors = adjList[source];
-        for(int i = 1; i < neighbors.size(); i++){
-
-            if(visited.count(neighbors[i].first.name) == 0){
-                visited.insert(neighbors[i].first.name);
-                dfsStack.push(neighbors[i].first.name);
+            if(current == source){
+                minPrice = compare;
+                minPriceName = current;
             }
+
+            else if(compare < minPrice){
+                minPrice = compare;
+                minPriceName = current;
+            }
+            else{
+                //do nothing, minPrice not updated
+            }
+
+            //second is the vector of pairs, get index[0] of pairs = source data, get first = Vertex
+            if( compare < max && compare > min )
+                priceRangeList.push_back(iter->first);
+
+
+
+            vector<pair<Vertex, int>> neighbors = adjList[current];
+            for(int i = 1; i < neighbors.size(); i++){
+
+                if(visited.count(neighbors[i].first.name) == 0){
+                    visited.insert(neighbors[i].first.name);
+                    dfsStack.push(neighbors[i].first.name);
+                }
+
+            }
+
 
         }
 
+
     }
 
-    return priceRangeList;
+    return minPriceName;
+
 
 }
 
 vector<string> Graph::DfsVolume(const string &source, float min, float max) {
 
-    //same as Bfs, but with stack instead
-
+    ////same as Bfs, but with stack instead
     vector<string> volumeRangeList;
 
+    float compare = 0;
+
+    //set and queue will store names of cities/region visited
 
     set<string> visited;
-    stack<string> dfsStack;
+    queue<string> dfsStack;
 
-    visited.insert(source);
+    visited.emplace(source);
     dfsStack.push(source);
 
     //Vpair dummy; //will be used to search and get "key" attribute data from the adjList
 
     while(!dfsStack.empty()){
 
-        string current = dfsStack.top();
+        string current = dfsStack.front();
         dfsStack.pop();
 
-        //find should always result in valid iterator
+        //find should (always?) result in valid iterator (ok not always)
         //constant access of hash search
-        auto iter = adjList.find(source);
+        auto iter = adjList.find(current);
+
+        //don't do anything if current is not found in the adjList
+        if(iter != adjList.end()){
+
+            compare = iter->second[0].first.price;
+
+            //second is the vector of pairs, get index[0] of pairs = source data, get first = Vertex
+            if( compare < max && compare > min )
+                volumeRangeList.push_back(iter->first);
 
 
-        //second is the vector of pairs, get index[0] of pairs = source data, get first = Vertex
-        if(iter->second[0].first.volume < max && iter->second[0].first.volume > min )
-            volumeRangeList.push_back(iter->first);
 
+            vector<pair<Vertex, int>> neighbors = adjList[current];
+            for(int i = 1; i < neighbors.size(); i++){
 
+                if(visited.count(neighbors[i].first.name) == 0){
+                    visited.insert(neighbors[i].first.name);
+                    dfsStack.push(neighbors[i].first.name);
+                }
 
-        vector<pair<Vertex, int>> neighbors = adjList[source];
-        for(int i = 1; i < neighbors.size(); i++){
-
-            if(visited.count(neighbors[i].first.name) == 0){
-                visited.insert(neighbors[i].first.name);
-                dfsStack.push(neighbors[i].first.name);
             }
 
+
         }
+
 
     }
 
